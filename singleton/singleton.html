@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+
+<script>
+	
+var Singleton = (function() {
+	var instance;
+
+	// Приватные методы и свойства
+	// ...	
+
+	// Конструктор
+	function Singleton() {
+		if ( !instance )
+			instance = this;
+		else return instance;
+
+		// Публичные свойства
+	}
+
+	// Публичные методы
+	Singleton.prototype.test = function() {};
+
+	return Singleton;
+})()
+
+console.assert( new Singleton() === new Singleton() );
+	
+</script>

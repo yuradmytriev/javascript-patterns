@@ -1,0 +1,4 @@
+I should point out here that avoiding this comes at a cost.
+Because Object.assign() copies the properties (including functions) from one object to another,
+you are increasing the memory burden. When you use prototype delegation and the this keyword
+you don’t duplicate the functions and properties, you delegate instead.

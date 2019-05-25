@@ -1,0 +1,38 @@
+class Event{
+    constructor(){
+        this.events = {};
+    }
+
+    on(eventName, fn) {
+        this.events[eventName] = this.events[eventName] || [];
+        this.events[eventName].push(fn);
+    }
+
+    off(eventName, fn) {
+        if (this.events[eventName]) {
+            for (var i = 0; i < this.events[eventName].length; i++) {
+                if (this.events[eventName][i] === fn) {
+                    this.events[eventName].splice(i, 1);
+                    break;
+                }
+            }
+        }
+    }
+
+    emitEvent(eventName, data) {
+        if (this.events[eventName]) {
+            this.events[eventName].forEach((fn) => {
+                fn(data);
+            });
+        }
+    }
+
+}
+
+const pubsub = new Event();
+const helloFunction = (data) => console.log(data)
+
+pubsub.on("say", helloFunction);
+pubsub.emitEvent("say", "hello");
+
+

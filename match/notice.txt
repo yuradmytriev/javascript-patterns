@@ -1,0 +1,27 @@
+1. minus of switch:
+    - it’s a block
+
+    switch (action) {
+      case 'UPDATE':
+        const val = msg[0]
+        return {...model, val}
+      case 'REPLACE':
+        const val = msg[1]
+        return {...model, val, active: false}
+    }
+
+    This code will not work because you can only declare val once for the entire block,
+    which is the set of curlies associated with the switch.
+
+    This issue is easy to fix. You can declare a block for each case:
+
+    switch (action) {
+      case 'UPDATE': {
+        const val = msg[0]
+        return {...model, val}
+      }
+      case 'REPLACE': {
+        const val = msg[1]
+        return {...model, val, active: false}
+      }
+    }

@@ -1,0 +1,15 @@
+Паттерны   Так уже прийнято, що усі дизайн-патерни поділені на три великі групи, а саме: породжуючі, структурні та поведінкові.
+
+Отже, породжуючі патерни. Основним завданням таких патернів є спростити створення об’єктів.
+
+Абстрактна Фабрика 
+
+Абстрактна фабрика надає простий інтерфейс для створення об’єктів, які належать до того чи іншого сімейства.
+
+public class TeddyToysFactory : IToyFactory { 
+	public Bear GetBear() { return new TeddyBear(); } 
+	public Cat GetCat() { return new TeddyCat(); } } 
+
+public class WoodenToysFactory : IToyFactory { 
+	public Bear GetBear() { return new WoodenBear(); } 
+	public Cat GetCat() { return new WoodenCat(); } }
