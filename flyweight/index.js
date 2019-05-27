@@ -8,11 +8,8 @@ class Flyweight {
 
 class Computer {
     constructor(make, model, processor, memory, tag) {
-        // when we create new object of computer type
-        // we get some part from FlyWeightFactory and return object
         this.flyweight = FlyWeightFactory.get(make, model, processor);
 
-        // then we add to our object other properties
         this.memory = memory;
         this.tag = tag;
     }
@@ -68,7 +65,7 @@ const run = () => {
     computers.add("HP", "Envy", "Intel", "2G", "TXU003283");
 
     console.log(computers.count());
-    console.log(FlyWeightFactory.count()); // here we get number 2, because we have two different objects
+    console.log(FlyWeightFactory.count());
 };
 
 run();

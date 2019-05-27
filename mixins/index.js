@@ -26,3 +26,28 @@ var RoundButton = function(radius, label) {
 };
 
 extend(RoundButton.prototype, circleFns);
+
+-------------------------------
+
+class Dwarf {}
+
+const Weaponry = {
+  hitWithSword() {
+    console.log("Swoosh!");
+  }
+};
+Object.assign(Dwarf.prototype, Weaponry);
+const dwarf = new Dwarf();
+
+dwarf.hitWithSword(); // "Swoosh!"
+
+------------------------------------
+
+const Armed = (target) =>
+  Object.assign(target, {
+    hitWithSword() {
+      console.log("Swoosh!");
+    }
+  });
+Armed(Dwarf.prototype);
+dwarf.hitWithSword(); // "Swoosh!"

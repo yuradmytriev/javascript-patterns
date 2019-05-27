@@ -38,3 +38,44 @@ const object = () => {
   };
 };
 ```
+
+Composition from different classes:
+
+```js
+
+class Eater {
+  eat() {
+    console.log('Eat!');
+  }
+  
+  //... other Eater methods
+}
+
+class Drinker {
+  drink() {
+    console.log('Drink!');
+  }
+  
+  //... other Drinker methods
+}
+
+class Human {
+  eat() {
+    new Eater().eat();
+  }
+
+  drink() {
+    new Drinker().drink();
+  }
+}
+
+const Jack = new Human();
+
+Jack.eat();
+Jack.drink();
+
+```
+
+### Links about composition:
+
+https://www.youtube.com/watch?v=wfMtDGfHWpA
